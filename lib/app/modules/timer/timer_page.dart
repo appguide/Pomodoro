@@ -19,8 +19,11 @@ class _TimerPageState extends State<TimerPage> {
         Expanded(
           child: Center(
             child: Text(
-              "${settings.concentracao()}",
-              style: TextStyle(fontSize: 28),
+              "Timer",
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),

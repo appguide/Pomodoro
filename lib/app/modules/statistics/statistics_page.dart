@@ -17,7 +17,10 @@ class _StatisticsPageState extends State<StatisticsPage> {
           child: Center(
             child: Text(
               "Statistics",
-              style: TextStyle(fontSize: 28),
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),

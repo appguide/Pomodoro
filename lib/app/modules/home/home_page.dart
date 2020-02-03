@@ -12,14 +12,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int index = 1;
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 28,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
         centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
         actions: <Widget>[
           FlatButton(
             onPressed: () {
@@ -36,15 +45,20 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.av_timer),
-            title: Text('Timer'),
+            icon: Icon(
+              Icons.av_timer,
+            ),
+            title: Text(''),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.timeline),
-            title: Text('Statistics'),
+            icon: Icon(
+              Icons.timeline,
+            ),
+            title: Text(''),
           ),
         ],
         currentIndex: 0,
+        iconSize: 32,
         selectedItemColor: Colors.black,
         onTap: (_) {},
       ),
