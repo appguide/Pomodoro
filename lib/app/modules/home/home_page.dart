@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:pomodoro/app/modules/statistics/statistics_page.dart';
 import 'package:pomodoro/app/modules/timer/timer_page.dart';
+
+import '../statistics/statistics_page.dart';
+import '../timer/timer_page.dart';
+import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -12,7 +17,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int index = 0;
+  final homeController = HomeController();
+
+  int _currentIndex = 0;
+
+  final List<Widget> _pages = [
+    TimerPage(),
+    StatisticsPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +52,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: index == 0 ? TimerPage() : StatisticsPage(),
+      body: Observer(
+        builder: (_) => _pages[homeController.index],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
         items: const <BottomNavigationBarItem>[
@@ -57,10 +71,10 @@ class _HomePageState extends State<HomePage> {
             title: Text(''),
           ),
         ],
-        currentIndex: 0,
+        currentIndex: homeController.index,
         iconSize: 32,
         selectedItemColor: Colors.black,
-        onTap: (_) {},
+        onTap: (_currentIndex) => homeController.onTapTapped(_currentIndex),
       ),
     );
   }
