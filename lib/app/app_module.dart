@@ -1,3 +1,4 @@
+import 'package:pomodoro/app/modules/timer/components/clock/clock_controller.dart';
 import 'package:pomodoro/app/modules/settings/settings_page.dart';
 import 'package:pomodoro/app/modules/statistics/statistics_controller.dart';
 import 'package:pomodoro/app/modules/statistics/statistics_page.dart';
@@ -13,6 +14,9 @@ import 'package:pomodoro/app/modules/timer/timer_page.dart';
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
+        Bind((i) => ClockController()),
+        Bind((i) => TimerController()),
+        Bind((i) => TimerController()),
         Bind((i) => StatisticsController()),
         Bind((i) => TimerController()),
         Bind((i) => SettingsController()),

@@ -29,10 +29,10 @@ mixin _$HomeController on _HomeBase, Store {
   final _$_HomeBaseActionController = ActionController(name: '_HomeBase');
 
   @override
-  void onTapTapped(dynamic index) {
+  void onTapTapped(dynamic currentIndex) {
     final _$actionInfo = _$_HomeBaseActionController.startAction();
     try {
-      return super.onTapTapped(index);
+      return super.onTapTapped(currentIndex);
     } finally {
       _$_HomeBaseActionController.endAction(_$actionInfo);
     }
